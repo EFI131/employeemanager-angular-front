@@ -70,6 +70,21 @@ export class AppComponent implements OnInit {
     );
   }
 
+  public searchEmployee(key: string): void {
+    const results: Employee[] = this.employees.filter((employee) => {
+      return (
+        employee.name.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+        employee.email.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+        employee.phone.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+        employee.jobTitle.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      );
+    });
+
+    this.employees = results.length ? results : [];
+
+    if (!key) this.getEmployees();
+  }
+
   public onOpenModal(employee: Employee, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
