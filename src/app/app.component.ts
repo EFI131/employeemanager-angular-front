@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
       case 'add':
         button.setAttribute('data-target', '#addEmployeeModal');
         break;
-      case 'update':
+      case 'edit':
         button.setAttribute('data-target', '#updateEmployeeModal');
         break;
       case 'delete':
